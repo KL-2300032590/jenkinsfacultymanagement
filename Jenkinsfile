@@ -40,7 +40,7 @@ pipeline {
                 # Create fresh directory
                 mkdir -p "$TOMCAT_DIR"
                 
-                # Copy build output (from facultyreactapp)
+                # Copy build output (Vite outputs to dist/)
                 cp -R facultyreactapp/dist/* "$TOMCAT_DIR/"
                 
                 # Start Tomcat
