@@ -71,27 +71,22 @@ pipeline {
         }
 
         // ===== BACKEND DEPLOY =====
-        stage('Deploy Backend to Tomcat') {
-            steps {
-                sh '''
-                TOMCAT_WEBAPPS="/Users/pardhasaradhireddy/apache-tomcat-10.1.43/webapps"
-                WAR_FILE="Facutlymanagement.war"
+       // ===== BACKEND DEPLOY =====
+stage('Deploy Backend to Tomcat') {
+    steps {
+        sh '''
+        WEBAPPS_PATH="$TOMCAT_HOME/webapps"
 
-                # Stop Tomcat
-                /Users/pardhasaradhireddy/apache-tomcat-10.1.43/bin/shutdown.sh || true
+        # Clean old deployment
+        rm -f "$WEBAPPS_PATH/Facultymanagement.war"
+        rm -rf "$WEBAPPS_PATH/Facultymanagement"
 
-                # Remove old deployment
-                rm -f "$TOMCAT_WEBAPPS/$WAR_FILE"
-                rm -rf "$TOMCAT_WEBAPPS/FacultyManagement"
+        # Copy new WAR
+        cp FacultyDemo/target/Facultymanagement.war "$WEBAPPS_PATH/"
+        '''
+    }
+}
 
-                # Copy new WAR (from FacultyDemo)
-                cp FacultyDemo/target/$WAR_FILE "$TOMCAT_WEBAPPS/"
-
-                # Start Tomcat
-                /Users/pardhasaradhireddy/apache-tomcat-10.1.43/bin/startup.sh
-                '''
-            }
-        }
     }
 
     post {
