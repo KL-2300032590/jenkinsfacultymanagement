@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+/Users/pardhasaradhireddy/Downloads/projects/jenkins-fullstack-assignments/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-4020590827.index
-3573100858.index
-2071565054.index
-3918534646.index
-3699099683.index
-3692898819.index
