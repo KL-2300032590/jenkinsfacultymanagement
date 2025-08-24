@@ -5,7 +5,8 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  // Add basename here to match Tomcat context
+  <BrowserRouter basename="/reactfacultyapi">
     <App />
   </BrowserRouter>
 );
