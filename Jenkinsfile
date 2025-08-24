@@ -75,7 +75,7 @@ pipeline {
             steps {
                 sh '''
                 TOMCAT_WEBAPPS="/Users/pardhasaradhireddy/apache-tomcat-10.1.43/webapps"
-                WAR_FILE="FacultyManagement.war"
+                WAR_FILE="Facutlymanagement.war"
 
                 # Stop Tomcat
                 /Users/pardhasaradhireddy/apache-tomcat-10.1.43/bin/shutdown.sh || true
