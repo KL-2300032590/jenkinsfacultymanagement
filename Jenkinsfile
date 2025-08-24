@@ -71,18 +71,13 @@ pipeline {
         }
 
         // ===== BACKEND DEPLOY =====
-       // ===== BACKEND DEPLOY =====
-stage('Deploy Backend to Tomcat') {
+        stage('Deploy Backend to Tomcat') {
     steps {
         sh '''
-        WEBAPPS_PATH="$TOMCAT_HOME/webapps"
-
-        # Clean old deployment
-        rm -f "$WEBAPPS_PATH/Facultymanagement.war"
-        rm -rf "$WEBAPPS_PATH/Facultymanagement"
-
-        # Copy new WAR
-        cp FacultyDemo/target/Facultymanagement.war "$WEBAPPS_PATH/"
+            TOMCAT_WEBAPPS=/Users/pardhasaradhireddy/apache-tomcat-10.1.43/webapps
+            rm -f $TOMCAT_WEBAPPS/Facutlymanagement.war
+            rm -rf $TOMCAT_WEBAPPS/Facutlymanagement
+            cp FacultyDemo/target/Facutlymanagement.war $TOMCAT_WEBAPPS/
         '''
     }
 }
