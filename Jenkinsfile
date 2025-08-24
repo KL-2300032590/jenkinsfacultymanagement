@@ -6,7 +6,7 @@ pipeline {
         // ===== FRONTEND BUILD =====
         stage('Build Frontend') {
             steps {
-                dir('FACULTY-REACT') {
+                dir('facultyreactapp') {
                     sh '''
                     #!/bin/bash
 
@@ -40,8 +40,8 @@ pipeline {
                 # Create fresh directory
                 mkdir -p "$TOMCAT_DIR"
                 
-                # Copy build output (corrected to FACULTY-REACT)
-                cp -R FACULTY-REACT/dist/* "$TOMCAT_DIR/"
+                # Copy build output (from facultyreactapp)
+                cp -R facultyreactapp/dist/* "$TOMCAT_DIR/"
                 
                 # Start Tomcat
                 /Users/pardhasaradhireddy/apache-tomcat-10.1.43/bin/startup.sh
@@ -52,7 +52,7 @@ pipeline {
         // ===== BACKEND BUILD =====
         stage('Build Backend') {
             steps {
-                dir('FACULTYAPI-SPRINGBOOT') {
+                dir('FacultyDemo') {
                     sh '''
                     #!/bin/bash
 
@@ -84,8 +84,8 @@ pipeline {
                 rm -f "$TOMCAT_WEBAPPS/$WAR_FILE"
                 rm -rf "$TOMCAT_WEBAPPS/FacultyManagement"
 
-                # Copy new WAR (corrected path)
-                cp FACULTYAPI-SPRINGBOOT/target/$WAR_FILE "$TOMCAT_WEBAPPS/"
+                # Copy new WAR (from FacultyDemo)
+                cp FacultyDemo/target/$WAR_FILE "$TOMCAT_WEBAPPS/"
 
                 # Start Tomcat
                 /Users/pardhasaradhireddy/apache-tomcat-10.1.43/bin/startup.sh
