@@ -75,9 +75,9 @@ pipeline {
     steps {
         sh '''
             TOMCAT_WEBAPPS=/Users/pardhasaradhireddy/apache-tomcat-10.1.43/webapps
-            rm -f $TOMCAT_WEBAPPS/Facutlymanagement.war
-            rm -rf $TOMCAT_WEBAPPS/Facutlymanagement
-            cp FacultyDemo/target/Facutlymanagement.war $TOMCAT_WEBAPPS/
+            rm -f $TOMCAT_WEBAPPS/Facultymanagement.war
+            rm -rf $TOMCAT_WEBAPPS/Facultymanagement
+            cp FacultyDemo/target/Facultymanagement.war $TOMCAT_WEBAPPS/
         '''
     }
 }
